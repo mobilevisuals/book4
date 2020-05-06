@@ -13,10 +13,10 @@ import javax.persistence.Id;
 /**
  * Stores information to identify the user.
  */
-/*@RequiredArgsConstructor
+@RequiredArgsConstructor
 @Getter
 @ToString
-@EqualsAndHashCode*/
+@EqualsAndHashCode
 @Entity
 public final class User {
 
@@ -28,13 +28,7 @@ public final class User {
     private final String alias;
 
     // Empty constructor for JSON/JPA
-    protected User() {
+    public User() {
         alias = null;
     }
-
-    public String getAlias() {
-        return alias;
-    }
-
-
 }

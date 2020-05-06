@@ -11,10 +11,10 @@ import javax.persistence.*;
  * Identifies the attempt from a {@link User} to solve a
  * {@link Multiplication}.
  */
-/*@RequiredArgsConstructor
+@RequiredArgsConstructor
 @Getter
 @ToString
-@EqualsAndHashCode*/
+@EqualsAndHashCode
 @Entity
 public final class MultiplicationResultAttempt {
 
@@ -24,15 +24,14 @@ public final class MultiplicationResultAttempt {
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "USER_ID")
-    private User user;
+    private final User user;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "MULTIPLICATION_ID")
-    private  Multiplication multiplication;
-    private int resultAttempt;
+    private final Multiplication multiplication;
+    private final int resultAttempt;
 
-    private boolean correct;
-
+    private final boolean correct;
 
     // Empty constructor for JSON/JPA
     public MultiplicationResultAttempt() {
@@ -42,27 +41,4 @@ public final class MultiplicationResultAttempt {
         correct = false;
     }
 
-    public MultiplicationResultAttempt(User user, Multiplication multiplication, int resultAttempt, boolean isCorrect) {
-        this.user=user;
-        this.multiplication=multiplication;
-        this.resultAttempt=resultAttempt;
-        this.correct=isCorrect;
-
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public Multiplication getMultiplication() {
-        return multiplication;
-    }
-
-    public int getResultAttempt() {
-        return resultAttempt;
-    }
-
-    public boolean isCorrect() {
-        return correct;
-    }
 }

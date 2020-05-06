@@ -13,10 +13,10 @@ import javax.persistence.Id;
 /**
  * This class represents a Multiplication (a * b).
  */
-/*@RequiredArgsConstructor
+@RequiredArgsConstructor
 @Getter
 @ToString
-@EqualsAndHashCode*/
+@EqualsAndHashCode
 @Entity
 public final class Multiplication {
 
@@ -26,22 +26,11 @@ public final class Multiplication {
     private Long id;
 
     // Both factors
-    private int factorA;
-    private int factorB;
+    private final int factorA;
+    private final int factorB;
 
-    public Multiplication()
-    {this(0,0);}
-
-    public Multiplication(int factorA,int factorB) {
+    // Empty constructor for JSON/JPA
+    public Multiplication() {
+        this(0, 0);
     }
-
-    public int getFactorA() {
-        return factorA;
-    }
-
-    public int getFactorB() {
-        return factorB;
-    }
-
-
 }
